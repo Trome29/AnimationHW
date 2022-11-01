@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     private var selectedDuration = CGFloat.random(in: 1...2)
     private var selectedDelay: CGFloat = 0.3
     
+    private var animation = Animation.getAnimation()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         runButton.setTitle("Run \(codeView.animation)", for: .normal)
@@ -36,17 +39,13 @@ class ViewController: UIViewController {
         codeView.layer.add(animation, forKey: "radius")
     }
     
-    @IBAction func shapeButtonPressed(_ sender: AnyObject) {
-        changeBall()
-    }
-    @IBAction func runButtonPressed(_ sender: SpringButton) {
+    private func getAnimate() {
         
-        //first animation
-        codeView.animation = "squeezeDown"
-        codeView.curve = "easeIn"
-        codeView.force = selectedForce
-        codeView.duration = selectedDuration
-        codeView.delay = selectedDelay
+        codeView.animation = animation.randomElement()?.animationName ?? ""
+        codeView.curve = animation.randomElement()?.curveName ?? ""
+        codeView.force = CGFloat.random(in: 0.5...1.5)
+        codeView.duration = CGFloat.random(in: 1...2)
+        codeView.delay = 0.3
         
         codeView.text += "\n\n\npreset: \"\(codeView.animation)\"\n"
         codeView.text += "curve: \"\(codeView.curve)\"\n"
@@ -55,6 +54,15 @@ class ViewController: UIViewController {
         codeView.text += String(format: "delay:  %.1f\n", Double(codeView.delay))
         
         codeView.animate()
+    }
+    
+    @IBAction func shapeButtonPressed(_ sender: AnyObject) {
+        changeBall()
+    }
+    @IBAction func runButtonPressed(_ sender: SpringButton) {
+        codeView.text = ""
+//        runButton.setTitle(codeView.animation, for: .normal)
+        getAnimate()
         
     }
 }
