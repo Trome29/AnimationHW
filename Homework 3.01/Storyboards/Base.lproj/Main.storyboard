@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -14,53 +14,59 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Homework_3_01" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fjz-A9-C0g" customClass="SpringTextView" customModule="SpringAnimation">
-                                <rect key="frame" x="75" y="99" width="243" height="243"/>
+                                <rect key="frame" x="75" y="40" width="170" height="170"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Fjz-A9-C0g" secondAttribute="height" multiplier="1:1" id="u3W-Kp-8EG"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="HDN-qC-OIM">
-                                <rect key="frame" x="175" y="481" width="43" height="100"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRF-Jk-Pdz">
-                                        <rect key="frame" x="6.6666666666666572" y="0.0" width="30" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="tintColor" red="0.1529411765" green="0.61176470589999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="icon-shape">
-                                            <color key="titleColor" systemColor="tintColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="shapeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2pT-w8-JO7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DH5-qc-efL" customClass="SpringButton" customModule="SpringAnimation">
-                                        <rect key="frame" x="0.0" y="58" width="43" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Run"/>
-                                        <connections>
-                                            <action selector="runButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WlY-jQ-NNI"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DH5-qc-efL" customClass="SpringButton" customModule="SpringAnimation">
+                                <rect key="frame" x="75" y="407" width="170" height="30"/>
+                                <color key="backgroundColor" systemColor="tintColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Run">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="runButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WlY-jQ-NNI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRF-Jk-Pdz">
+                                <rect key="frame" x="145" y="285" width="30" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" red="0.1529411765" green="0.61176470589999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="icon-shape">
+                                    <color key="titleColor" systemColor="tintColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="shapeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2pT-w8-JO7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="DH5-qc-efL" firstAttribute="top" secondItem="PRF-Jk-Pdz" secondAttribute="bottom" constant="104" id="0TR-uA-weI"/>
                             <constraint firstItem="Fjz-A9-C0g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="F9t-x1-KkA"/>
-                            <constraint firstItem="HDN-qC-OIM" firstAttribute="top" secondItem="Fjz-A9-C0g" secondAttribute="bottom" constant="139" id="Wge-RP-vg8"/>
-                            <constraint firstItem="HDN-qC-OIM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a9f-po-yPG"/>
+                            <constraint firstItem="DH5-qc-efL" firstAttribute="width" secondItem="Fjz-A9-C0g" secondAttribute="width" id="JTb-S6-Uhe"/>
+                            <constraint firstItem="PRF-Jk-Pdz" firstAttribute="top" secondItem="Fjz-A9-C0g" secondAttribute="bottom" constant="75" id="ags-ns-NDF"/>
+                            <constraint firstItem="DH5-qc-efL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gGf-uN-Ivm"/>
                             <constraint firstItem="Fjz-A9-C0g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="hUk-hH-1z9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fjz-A9-C0g" secondAttribute="trailing" constant="75" id="kC2-PM-kLN"/>
+                            <constraint firstItem="PRF-Jk-Pdz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zr0-m0-8Fd"/>
                         </constraints>
                     </view>
                     <connections>
