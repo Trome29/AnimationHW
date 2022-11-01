@@ -17,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fjz-A9-C0g" customClass="SpringTextView" customModule="SpringAnimation">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fjz-A9-C0g" customClass="SpringTextView" customModule="SpringAnimation">
                                 <rect key="frame" x="75" y="99" width="243" height="243"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Fjz-A9-C0g" secondAttribute="height" multiplier="1:1" id="u3W-Kp-8EG"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="HDN-qC-OIM">
@@ -64,7 +64,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="codeView" destination="Fjz-A9-C0g" id="lLb-Qf-59Z"/>
+                        <outlet property="codeTextView" destination="Fjz-A9-C0g" id="lLb-Qf-59Z"/>
                         <outlet property="runButton" destination="DH5-qc-efL" id="TaQ-lx-OCK"/>
                     </connections>
                 </viewController>
