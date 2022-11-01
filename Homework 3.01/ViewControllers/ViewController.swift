@@ -16,12 +16,12 @@ class ViewController: UIViewController {
     
     // MARK: - Private properties
     private var isBall = false
-    private var animation = Animation.getAnimation()
     private var selectedAnimation = ""
     private var selectedCurve = ""
     private var selectedForce: CGFloat = 0
     private var selectedDuration: CGFloat = 0
     private let selectedDelay: CGFloat = 0.3
+    private let animation = Animation.getAnimation()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -31,12 +31,8 @@ class ViewController: UIViewController {
         selectedForce = CGFloat.random(in: 1.3...2)
         selectedDuration = CGFloat.random(in: 0.8...2)
         
-        
         codeTextView.text += "preset: \"\(selectedAnimation)\"\n"
-        codeTextView.text += "curve: \"\(selectedCurve)\"\n"
-        codeTextView.text += String(format: "force:  %.1f\n", Double(selectedForce))
-        codeTextView.text += String(format: "duration:  %.1f\n", Double(selectedDuration))
-        codeTextView.text += String(format: "delay:  %.1f\n", Double(selectedDelay))
+        getSetupTextView()
     }
     
     override func viewWillLayoutSubviews() {
@@ -50,6 +46,7 @@ class ViewController: UIViewController {
     @IBAction func runButtonPressed(_ sender: SpringButton) {
         codeTextView.text = ""
         getAnimate()
+        codeTextView.text += "preset: \"\(codeTextView.animation)\"\n"
         getSetupTextView()
         runButton.setTitle("Run \(selectedAnimation)", for: .normal)
     }
@@ -59,7 +56,6 @@ class ViewController: UIViewController {
 extension ViewController {
     
     private func getOptions() {
-        
         selectedAnimation = animation.randomElement()?.animationName ?? ""
         selectedCurve = animation.randomElement()?.curveName ?? ""
         selectedForce = CGFloat.random(in: 1.3...2)
@@ -71,13 +67,10 @@ extension ViewController {
     }
     
     private func getSetupTextView() {
-        
-        codeTextView.text += "preset: \"\(codeTextView.animation)\"\n"
         codeTextView.text += "curve: \"\(selectedCurve)\"\n"
         codeTextView.text += String(format: "force:  %.1f\n", Double(selectedForce))
         codeTextView.text += String(format: "duration:  %.1f\n", Double(selectedDuration))
         codeTextView.text += String(format: "delay:  %.1f\n", Double(selectedDelay))
-        
     }
     
     private func getAnimate() {

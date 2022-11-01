@@ -26,7 +26,6 @@ class AnimationsData {
         "fadeInDown",
         "fadeInUp",
         "zoomIn",
-        "zoomOut",
         "fall",
         "shake",
         "flipX",
