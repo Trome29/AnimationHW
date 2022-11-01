@@ -19,8 +19,8 @@ class ViewController: UIViewController {
     private var animation = Animation.getAnimation()
     private var selectedAnimation = ""
     private var selectedCurve = ""
-    private var selectedForce = CGFloat.random(in: 1.3...2)
-    private var selectedDuration = CGFloat.random(in: 0.8...2)
+    private var selectedForce: CGFloat = 0
+    private var selectedDuration: CGFloat = 0
     private let selectedDelay: CGFloat = 0.3
     
     // MARK: - View Life Cycle
@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         selectedAnimation = animation.randomElement()?.animationName ?? ""
         selectedCurve = animation.randomElement()?.curveName ?? ""
+        selectedForce = CGFloat.random(in: 1.3...2)
+        selectedDuration = CGFloat.random(in: 0.8...2)
+        
         
         codeTextView.text += "preset: \"\(selectedAnimation)\"\n"
         codeTextView.text += "curve: \"\(selectedCurve)\"\n"
@@ -55,24 +58,19 @@ class ViewController: UIViewController {
 // MARK: - Private methods
 extension ViewController {
     
-    private func changeBall() {
-        isBall.toggle()
-        let animation = CABasicAnimation()
-        let halfWidth = codeTextView.frame.width / 2
-        let cornerRadius: CGFloat = isBall ? halfWidth : 10
-        animation.keyPath = "cornerRadius"
-        animation.fromValue = isBall ? 10 : halfWidth
-        animation.toValue = cornerRadius
-        animation.duration = 0.2
-        codeTextView.layer.cornerRadius = cornerRadius
-        codeTextView.layer.add(animation, forKey: "radius")
-    }
-    
-    private func getSetupTextView() {
+    private func getOptions() {
+        
         selectedAnimation = animation.randomElement()?.animationName ?? ""
         selectedCurve = animation.randomElement()?.curveName ?? ""
         selectedForce = CGFloat.random(in: 1.3...2)
-        selectedDuration = CGFloat.random(in: 0.8...2)
+        selectedDuration = CGFloat.random(in: 1.2...2)
+        
+        codeTextView.force = selectedForce
+        codeTextView.duration = selectedDuration
+        codeTextView.delay = selectedDelay
+    }
+    
+    private func getSetupTextView() {
         
         codeTextView.text += "preset: \"\(codeTextView.animation)\"\n"
         codeTextView.text += "curve: \"\(selectedCurve)\"\n"
@@ -84,7 +82,21 @@ extension ViewController {
     
     private func getAnimate() {
         codeTextView.animation = selectedAnimation
+        getOptions()
         codeTextView.animate()
+    }
+    
+    private func changeBall() {
+        isBall.toggle()
+        let animation = CABasicAnimation()
+        let halfWidth = codeTextView.frame.width / 2
+        let cornerRadius: CGFloat = isBall ? halfWidth : 10
+        animation.keyPath = "cornerRadius"
+        animation.fromValue = isBall ? 10 : halfWidth
+        animation.toValue = cornerRadius
+        animation.duration = 0.2
+        codeTextView.layer.cornerRadius = cornerRadius
+        codeTextView.layer.add(animation, forKey: "radius")
     }
 }
 
