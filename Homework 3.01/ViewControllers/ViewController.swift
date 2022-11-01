@@ -20,10 +20,20 @@ class ViewController: UIViewController {
     
     private var animation = Animation.getAnimation()
     
+    private var animationName = ""
+    private var selectedCurve = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        runButton.setTitle("Run \(codeView.animation)", for: .normal)
+        animationName = animation.randomElement()?.animationName ?? ""
+        selectedCurve = animation.randomElement()?.curveName ?? ""
+        
+        codeView.text += "\n\n\npreset: \"\(animationName)\"\n"
+        codeView.text += "curve: \"\(selectedCurve)\"\n"
+        codeView.text += String(format: "force:  %.1f\n", Double(selectedForce))
+        codeView.text += String(format: "duration:  %.1f\n", Double(selectedDuration))
+        codeView.text += String(format: "delay:  %.1f\n", Double(selectedDelay))
     }
     
     private func changeBall() {
@@ -41,17 +51,17 @@ class ViewController: UIViewController {
     
     private func getAnimate() {
         
-        codeView.animation = animation.randomElement()?.animationName ?? ""
-        codeView.curve = animation.randomElement()?.curveName ?? ""
-        codeView.force = CGFloat.random(in: 0.5...1.5)
-        codeView.duration = CGFloat.random(in: 1...2)
-        codeView.delay = 0.3
+        codeView.animation = animationName
+        selectedCurve = animation.randomElement()?.curveName ?? ""
+        selectedForce = CGFloat.random(in: 0.9...1.5)
+        selectedDuration = CGFloat.random(in: 1...2)
+        selectedDelay = 0.3
         
         codeView.text += "\n\n\npreset: \"\(codeView.animation)\"\n"
-        codeView.text += "curve: \"\(codeView.curve)\"\n"
-        codeView.text += String(format: "force:  %.1f\n", Double(codeView.force))
-        codeView.text += String(format: "duration:  %.1f\n", Double(codeView.duration))
-        codeView.text += String(format: "delay:  %.1f\n", Double(codeView.delay))
+        codeView.text += "curve: \"\(selectedCurve)\"\n"
+        codeView.text += String(format: "force:  %.1f\n", Double(selectedForce))
+        codeView.text += String(format: "duration:  %.1f\n", Double(selectedDuration))
+        codeView.text += String(format: "delay:  %.1f\n", Double(selectedDelay))
         
         codeView.animate()
     }
@@ -61,8 +71,20 @@ class ViewController: UIViewController {
     }
     @IBAction func runButtonPressed(_ sender: SpringButton) {
         codeView.text = ""
-//        runButton.setTitle(codeView.animation, for: .normal)
         getAnimate()
+        
+        animationName = animation.randomElement()?.animationName ?? ""
+        selectedCurve = animation.randomElement()?.curveName ?? ""
+        selectedForce = CGFloat.random(in: 0.9...1.5)
+        selectedDuration = CGFloat.random(in: 1...2)
+        
+        codeView.text += "\n\n\npreset: \"\(animationName)\"\n"
+        codeView.text += "curve: \"\(selectedCurve)\"\n"
+        codeView.text += String(format: "force:  %.1f\n", Double(selectedForce))
+        codeView.text += String(format: "duration:  %.1f\n", Double(selectedDuration))
+        codeView.text += String(format: "delay:  %.1f\n", Double(selectedDelay))
+        
+        runButton.setTitle("Run \(animationName)", for: .normal)
         
     }
 }
