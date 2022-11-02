@@ -21,15 +21,12 @@ class ViewController: UIViewController {
     private var selectedForce: CGFloat = 0
     private var selectedDuration: CGFloat = 0
     private let selectedDelay: CGFloat = 0.3
-    private let animation = Animation.getAnimation()
+    private let animation = Animation.getAnimations()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedAnimation = animation.randomElement()?.animationName ?? ""
-        selectedCurve = animation.randomElement()?.curveName ?? ""
-        selectedForce = CGFloat.random(in: 1.3...2)
-        selectedDuration = CGFloat.random(in: 0.8...2)
+        selectedValues()
         
         codeTextView.text += "preset: \"\(selectedAnimation)\"\n"
         getSetupTextView()
@@ -55,11 +52,15 @@ class ViewController: UIViewController {
 // MARK: - Private methods
 extension ViewController {
     
-    private func getOptions() {
+    private func selectedValues() {
         selectedAnimation = animation.randomElement()?.animationName ?? ""
         selectedCurve = animation.randomElement()?.curveName ?? ""
         selectedForce = CGFloat.random(in: 1.3...2)
         selectedDuration = CGFloat.random(in: 1.2...2)
+    }
+    
+    private func getOptions() {
+        selectedValues()
         
         codeTextView.force = selectedForce
         codeTextView.duration = selectedDuration

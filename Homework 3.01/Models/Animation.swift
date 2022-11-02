@@ -10,12 +10,12 @@ struct Animation {
     let animationName: String
     let curveName: String
 
-    static func getAnimation() -> [Animation] {
+    static func getAnimations() -> [Animation] {
         
         var animationList: [Animation] = []
-        
-        let animations = AnimationsData().animations
-        let curves = AnimationsData().curves
+        let animationsData = AnimationsData()
+        let animations = animationsData.animations
+        let curves = animationsData.curves
         
         let iterationCount = min(animations.count, curves.count)
         
