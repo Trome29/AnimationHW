@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     private var selectedDuration: CGFloat = 0
     private let selectedDelay: CGFloat = 0.3
     private let animation = Animation.getAnimations()
-    
+
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +53,8 @@ class ViewController: UIViewController {
 extension ViewController {
     
     private func selectedValues() {
-        selectedAnimation = animation.randomElement()?.animationName ?? ""
-        selectedCurve = animation.randomElement()?.curveName ?? ""
+        selectedAnimation = animation.randomElement()?.animation ?? ""
+        selectedCurve = animation.randomElement()?.curve ?? ""
         selectedForce = CGFloat.random(in: 1.3...2)
         selectedDuration = CGFloat.random(in: 1.2...2)
     }

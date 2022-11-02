@@ -7,6 +7,8 @@
 
 class AnimationsData {
     
+    static let shared = AnimationsData()
+    
     let animations =
     [
         "pop",

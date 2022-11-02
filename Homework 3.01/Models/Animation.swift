@@ -7,20 +7,19 @@
 
 struct Animation {
     
-    let animationName: String
-    let curveName: String
+    let animation: String
+    let curve: String
 
     static func getAnimations() -> [Animation] {
         
         var animationList: [Animation] = []
-        let animationsData = AnimationsData()
-        let animations = animationsData.animations
-        let curves = animationsData.curves
+        let animations = AnimationsData.shared.animations
+        let curves = AnimationsData.shared.curves
         
         let iterationCount = min(animations.count, curves.count)
         
         for index in 0..<iterationCount {
-            let animation = Animation(animationName: animations[index], curveName: curves[index])
+            let animation = Animation(animation: animations[index], curve: curves[index])
             animationList.append(animation)
         }
         return animationList
