@@ -15,7 +15,7 @@
 		30B10B0429110677009F25EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B10B0229110677009F25EA /* LaunchScreen.storyboard */; };
 		30B10B0D291106F4009F25EA /* SpringAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = 30B10B0C291106F4009F25EA /* SpringAnimation */; };
 		30B10B1429111724009F25EA /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B10B1329111724009F25EA /* Animation.swift */; };
-		30B10B172911180E009F25EA /* AnimationsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B10B162911180E009F25EA /* AnimationsData.swift */; };
+		30B10B172911180E009F25EA /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B10B162911180E009F25EA /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,7 @@
 		30B10B0329110677009F25EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30B10B0529110677009F25EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30B10B1329111724009F25EA /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
-		30B10B162911180E009F25EA /* AnimationsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsData.swift; sourceTree = "<group>"; };
+		30B10B162911180E009F25EA /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 		30B10B15291117DE009F25EA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				30B10B162911180E009F25EA /* AnimationsData.swift */,
+				30B10B162911180E009F25EA /* DataStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -202,7 +202,7 @@
 			files = (
 				30B10AFC29110676009F25EA /* ViewController.swift in Sources */,
 				30B10AF829110676009F25EA /* AppDelegate.swift in Sources */,
-				30B10B172911180E009F25EA /* AnimationsData.swift in Sources */,
+				30B10B172911180E009F25EA /* DataStore.swift in Sources */,
 				30B10B1429111724009F25EA /* Animation.swift in Sources */,
 				30B10AFA29110676009F25EA /* SceneDelegate.swift in Sources */,
 			);

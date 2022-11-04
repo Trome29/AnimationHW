@@ -11,27 +11,18 @@ import SpringAnimation
 class ViewController: UIViewController {
     
     // MARK: - IBOutlets
-    @IBOutlet var codeTextView: SpringTextView!
+    @IBOutlet var codeTextView: SpringTextView! {
+        didSet {
+            codeTextView.text = animation.description
+        }
+    }
     @IBOutlet var runButton: SpringButton!
     
     // MARK: - Private properties
     private var isBall = false
-    private var selectedAnimation = ""
-    private var selectedCurve = ""
-    private var selectedForce: CGFloat = 0
-    private var selectedDuration: CGFloat = 0
-    private let selectedDelay: CGFloat = 0.3
-    private let animation = Animation.getAnimations()
+    private var animation = Animation.getRandomAnimation()
 
     // MARK: - View Life Cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        selectedValues()
-        
-        codeTextView.text += "preset: \"\(selectedAnimation)\"\n"
-        getSetupTextView()
-    }
-    
     override func viewWillLayoutSubviews() {
         codeTextView.centerVertically()
     }
@@ -41,45 +32,22 @@ class ViewController: UIViewController {
         changeBall()
     }
     @IBAction func runButtonPressed(_ sender: SpringButton) {
-        codeTextView.text = ""
-        getAnimate()
-        codeTextView.text += "preset: \"\(codeTextView.animation)\"\n"
-        getSetupTextView()
-        runButton.setTitle("Run \(selectedAnimation)", for: .normal)
+        codeTextView.text = animation.description
+        
+        codeTextView.animation = animation.name
+        codeTextView.curve = animation.curve
+        codeTextView.force = animation.force
+        codeTextView.duration = animation.duration
+        codeTextView.delay = animation.delay
+        codeTextView.animate()
+        
+        animation = Animation.getRandomAnimation()
+        runButton.setTitle("Run \(animation.name)", for: .normal)
     }
 }
 
 // MARK: - Private methods
 extension ViewController {
-    
-    private func selectedValues() {
-        selectedAnimation = animation.randomElement()?.animation ?? ""
-        selectedCurve = animation.randomElement()?.curve ?? ""
-        selectedForce = CGFloat.random(in: 1.3...2)
-        selectedDuration = CGFloat.random(in: 1.2...2)
-    }
-    
-    private func getOptions() {
-        selectedValues()
-        
-        codeTextView.force = selectedForce
-        codeTextView.duration = selectedDuration
-        codeTextView.delay = selectedDelay
-    }
-    
-    private func getSetupTextView() {
-        codeTextView.text += "curve: \"\(selectedCurve)\"\n"
-        codeTextView.text += String(format: "force:  %.1f\n", Double(selectedForce))
-        codeTextView.text += String(format: "duration:  %.1f\n", Double(selectedDuration))
-        codeTextView.text += String(format: "delay:  %.1f\n", Double(selectedDelay))
-    }
-    
-    private func getAnimate() {
-        codeTextView.animation = selectedAnimation
-        getOptions()
-        codeTextView.animate()
-    }
-    
     private func changeBall() {
         isBall.toggle()
         let animation = CABasicAnimation()
